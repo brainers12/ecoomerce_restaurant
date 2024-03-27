@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :require_login, only: [:new, :create]
 
   def show
     @order = Order.find(params[:id])
@@ -30,7 +31,7 @@ class OrdersController < ApplicationController
     Stripe::Charge.create(
       source:      params[:stripeToken],
       amount:      cart_subtotal_cents,
-      description: "Khurram Virani's Jungle Order",
+      description: "Earl's Order",
       currency:    'cad'
     )
   end

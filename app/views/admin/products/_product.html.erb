@@ -18,5 +18,7 @@
   </td>
   <td>
     <%= link_to fa_icon('trash'), [:admin, product], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to fa_icon('edit'), edit_admin_product_path(product), class: 'btn btn-sm btn-primary', data: { toggle: "tooltip", placement: "top" }, title: "Edit Product" %>
+
   </td>
 </tr>

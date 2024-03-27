@@ -11,6 +11,11 @@
   </head>
     <body>
 
+    <% flash.each do |type, message| %>
+      <div class="<%= type %>"><%= message %></div>
+    <% end %>
+    
+    
     <%= render 'layouts/top_nav' %>
 
     <main class="container">

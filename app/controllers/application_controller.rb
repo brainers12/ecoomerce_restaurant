@@ -3,7 +3,17 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  rescue ActiveRecord::RecordNotFound
+    session[:user_id] = nil  # Clear the session if the user isn't found
   end
+
+  def require_login
+    unless current_user
+      flash[:alert] = "You must be logged in to perform this action."
+      redirect_to '/login'  # Replace with your login path
+    end
+  end
+
   helper_method :current_user
 
   def authorize

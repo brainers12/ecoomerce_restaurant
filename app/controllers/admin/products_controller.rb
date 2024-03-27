@@ -25,6 +25,22 @@ class Admin::ProductsController < ApplicationController
     redirect_to [:admin, :products], notice: 'Product deleted!'
   end
 
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to [:admin, @product], notice: 'Product was successfully updated.'
+    else
+      render :edit
+    end
+  end
+  
+
   private
 
   def product_params
