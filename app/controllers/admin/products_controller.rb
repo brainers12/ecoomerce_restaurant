@@ -39,6 +39,13 @@ class Admin::ProductsController < ApplicationController
       render :edit
     end
   end
+
+  def show
+    @product = Product.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Product not found."
+    redirect_to admin_products_path
+  end
   
 
   private

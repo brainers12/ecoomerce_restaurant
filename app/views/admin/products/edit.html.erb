@@ -1,45 +1,49 @@
-<%= form_with(model: [:admin, @product], local: true, multipart: true) do |form| %>
+<%= form_for [:admin, @product], html: { multipart: true } do |f| %>
+
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
-        <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :product_name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :product_description %>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :product_price %>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :product_quantity %>
+    <%= f.label :category %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <% if @product.image.attached? %>
-      <%= image_tag(@product.image.variant(resize_to_limit: [100, 100])) %>
+    <%= f.label :image %><br>
+    <% if @product.image? %>
+      <%= image_tag(@product.image.url) %>
+      <p>Change Image:</p>
     <% end %>
-    <%= form.file_field :image, id: :product_image %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', products_path %>
