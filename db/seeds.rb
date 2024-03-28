@@ -15,9 +15,9 @@ end
 
 puts "Finding or Creating Categories ..."
 
-cat1 = Category.find_or_create_by! name: 'Evergreens'
-cat2 = Category.find_or_create_by! name: 'Shrubs'
-cat3 = Category.find_or_create_by! name: 'Trees'
+cat1 = Category.find_or_create_by! name: 'Breakfast'
+cat2 = Category.find_or_create_by! name: 'Lunch'
+cat3 = Category.find_or_create_by! name: 'Dinner'
 
 ## PRODUCTS
 
@@ -26,185 +26,135 @@ puts "Re-creating Products ..."
 Product.destroy_all
 
 cat1.products.create!({
-  name:  'Giant Tea',
-  description: "The Giant Tea is an uncommon, medium-sized plant and can be found only in some tundras. It blooms twice a year, for 3 weeks.
-  It has narrow, paired leaves, which are usually yellow-green. It also grows large flowers, which can be blue, bronze, light yellow, purple and light grey.
-  
-  These plants grow in decent numbers, but it's near impossible to control and maintain their growth.
-  They can be used as an anesthetic.
-  
-  As a defense mechanism the Giant Tea grow slippery leaves to prevent insects from easily eaten them.
-  They rely on animal pollination to reproduce. To promote pollination, they produce aromatic scents.",
-  image: open_asset('plante_1.jpg'),
-  quantity: 0,
-  price: 64.99
+  name:  'Chhole Masala',
+  description: "Chhole Masala, also known as Chana Masala, is a vibrant and flavorful dish from Indian 
+  cuisine, made with white chickpeas (chhole) that are simmered in a rich and spicy tomato-based sauce. 
+  The sauce is a harmonious blend of onions, tomatoes, garlic, ginger, and a variety of aromatic spices
+  like cumin, coriander, garam masala, and amchur (dry mango powder), which give the dish its 
+  distinctive tangy and spicy flavor profile. Often garnished with fresh cilantro and served with 
+  a side of lemon wedges, Chhole Masala is a beloved vegetarian dish that's both hearty and nourishing.",
+  image: open_asset('chhole.jpg'),
+  quantity: 1,
+  price: 20
 })
 
 cat1.products.create!({
-  name:  'Scented Blade',
-  description: "
-  The Scented Blade is an extremely rare, tall plant and can be found mostly in savannas. It blooms once a year, for 2 weeks.
-It has thin, palmate leaves, which are usually lime green. It also grows small flowers, which can be dark blue, light gold and dark red.
-
-These plants grow in large groups, but it's fairly easy to control and maintain their growth.
-They can be eaten to relief a sore throat.
-
-As a defense mechanism the Scented Blade can collapse its flowers when it detects vibrations.
-They rely on animal pollination to reproduce. Once pollinated, they grow fairly large, delicious nuts.",
-  image: open_asset('plante_2.jpg'),
-  quantity: 18,
-  price: 24.99
+  name:  'Rajma Chawal',
+  description: "Rajma Chawal is a heartwarming North Indian dish that combines rich, spicy kidney beans (rajma) with 
+  fluffy white rice (chawal). The rajma is slow-cooked in a thick gravy made from tomatoes, onions, 
+  garlic, and a melange of spices such as cumin, coriander, garam masala, and turmeric, 
+  resulting in a deeply flavorful and comforting meal. The creamy texture of the beans contrasts
+   beautifully with the simplicity of the rice, making Rajma Chawal a satisfying and wholesome dish. ",
+  image: open_asset('Rajma.jpg'),
+  quantity: 1,
+  price: 25
 })
 
 cat1.products.create!({
-  name:  'Lion Grapevine',
-  description: "The Lion Grapevine is an uncommon, modest plant and can be found only in some humid regions. It blooms once a year, for 4 months.
-  It has wide, squared leaves, which are usually purple. It also grows tiny flowers, which can be dark bronze and orange.
-  
-  These plants grow in large groups, but it's really tricky to control and maintain their growth.
-  They can be brewed as tea.
-  
-  As a defense mechanism the Lion Grapevine grows small thorns.
-  They rely on wind pollination to reproduce. Once pollinated, they grow small, inedible fruits.",
-  image: open_asset('plante_3.jpg'),
-  quantity: 4,
-  price: 34.49
+  name:  'Vada Pav',
+  description: "Often called the Indian burger, Vada Pav is a popular street food from Mumbai. 
+  It consists of a deep-fried potato dumpling (vada) placed inside a bread bun (pav) and served 
+  with various chutneys and a green chili pepper. It's spicy, flavorful, and incredibly satisfying.",
+  image: open_asset('Vada.jpg'),
+  quantity: 1,
+  price: 10
 })
 
 cat1.products.create!({
-  name:  'Bone Coneflower',
-  description: "The Bone Coneflower is an uncommon, small plant and can be found only in some forests. It blooms in early spring.
-  It has thick, paired leaves, which are usually blue-green. It also grows large flowers, which can be dark blue, dark orange and light brown.
-  
-  These plants grow within short distances from each other, but it's a bit tricky to control and maintain their growth.
-  They can be used to treat wounds.
-  
-  As a defense mechanism the Bone Coneflower is poisonous for most creatures.
-  They rely on self pollination to reproduce. Once pollinated, they grow fairly large, inedible fruits.",
-  image: open_asset('plante_4.jpg'),
-  quantity: 8,
-  price: 24.99
+  name:  'Malai Kofta',
+  description: "A dish for special occasions, Malai Kofta consists of deep-fried vegetable balls (koftas) 
+  served in a rich, creamy sauce made from tomatoes and cashews. It's mildly spiced, slightly sweet, 
+  and decadently creamy.",
+  image: open_asset('Malai.jpg'),
+  quantity: 1,
+  price: 25
 })
 
 cat1.products.create!({
-  name:  'Enirthelda',
-  description: "The Enirthelda is an uncommon, large plant and can be found only in some forests. It blooms once a year, for 2 months.
-  It has narrow, barb shaped leaves, which are usually blue-green. It also grows huge flowers, which can be purple and light red.
-  
-  These plants grow in small numbers, but it's extremely easy to control and maintain their growth.
-  They can be cooked and eaten.
-  
-  As a defense mechanism the Enirthelda produces a thick, sticky wax.
-  They rely on wind pollination to reproduce. Once pollinated, they grow fairly large, inedible nuts.",
-  image: open_asset('plante_5.jpg'),
-  quantity: 8,
-  price: 124.99
+  name:  'Samosa',
+  description: "A beloved Indian appetizer, Samosas are fried or baked pastry shells filled with a
+  spicy mixture of mashed potatoes, peas, and sometimes meat. They are triangular in shape and 
+  are served with sweet tamarind chutney or mint sauce.",
+  image: open_asset('Samosa.jpg'),
+  quantity: 5,
+  price: 10
 })
 
 cat1.products.create!({
-  name:  'Swamp Root',
-  description: "The Swamp Root is a very common, huge plant and can be found in most subarctic regions. It blooms once a year, for 1 week.
-  It has wide, egg shaped leaves, which are usually blue-green. It also grows tiny flowers, which can be dark pink, light purple and dark red.
-  
-  These plants grow in large groups, but it's extremely easy to control and maintain their growth.
-  They can be used to create a poison.
-  
-  As a defense mechanism the Swamp Root taste extremely sour.
-  They rely on animal pollination to reproduce. To promote pollination, they produce a delicious nectar.",
-  image: open_asset('plante_6.jpg'),
-  quantity: 82,
-  price: 24.49
-})
-
-
-cat2.products.create!({
-  name:  'Sweet Hops',
-  description: "The Sweet Hop is a rare, medium-sized plant and can be found only at lake borders. It blooms twice a year, for 2 months.
-  It has thin, diamond shaped leaves, which are usually light red. It also grows tiny flowers, which can be dark pink, brown and pink.
-  
-  These plants grow in large groups, but it's hard, especially without experience, to control and maintain their growth.
-  They have no real use, besides their aesthetics.
-  
-  As a defense mechanism the Sweet Hop relies mostly on its surroundings to survive.
-  They rely on self pollination to reproduce. Once pollinated, they grow fairly large, delicious nuts.",
-  image: open_asset('plante_7.jpg'),
-  quantity: 40,
-  price: 64.49
-})
-
-cat2.products.create!({
-  name:  'Tangle Azolla',
-  description: "The Tangle Azolla is a very rare, modest plant and can be found in any cold region. It blooms once a year, for 2 months.
-  It has wide, palmate leaves, which are usually light orange. It also grows tiny flowers, which can be light grey, white, light blue, light purple and light gold.
-  
-  These plants grow in large groups, but it's near impossible to control and maintain their growth.
-  They have no use, but look nice in gardens.
-  
-  As a defense mechanism the Tangle Azolla grow slippery leaves to prevent insects from easily eaten them.
-  They rely on self pollination to reproduce. Once pollinated, they grow delicious, small fruits.",
-  image: open_asset('plante_8.jpg'),
-  quantity: 3,
-  price: 24.99
-})
-
-cat2.products.create!({
-  name:  'Krapliper',
-  description: "The Krapliper is a rare, modest plant and can be found only in deserts. It blooms once a year, for 2 weeks.
-  It has thick, sickle shaped leaves, which are usually lime green. It also grows tiny flowers, which can be light bronze, orange and gold.
-  
-  These plants grow within short distances from each other, but it's really difficult to control and maintain their growth.
-  They can be used to treat wounds.
-  
-  As a defense mechanism the Krapliper produces a thick, sticky wax.
-  They rely on self pollination to reproduce. Once pollinated, they grow fairly large, inedible fruits.",
-  image: open_asset('plante_9.jpg'),
-  quantity: 32,
-  price: 1999.99
-})
-
-cat3.products.create!({
-  name:  'Eesrorn',
-  description: "The Eesrorn is a very common, tall plant and can be found in most subarctic regions. It blooms twice a year, for 2 months.
-  It has large, needle leaves, which are usually light yellow. It also grows decent sized flowers, which can be light grey, yellow and light blue.
-  
-  These plants grow separated by a fair distance from each other, but it's hard to control and maintain their growth.
-  They have no real use.
-  
-  As a defense mechanism the Eesrorn has a thick, wooden stem.
-  They rely on water currents to carry their seeds away to reproduce. Once pollinated, they grow fairly large, inedible fruits.",
-  image: open_asset('plante_10.jpg'),
-  quantity: 320,
-  price: 39.99
-})
-
-cat3.products.create!({
-  name:  'Void Fennel',
-  description: "The Void Fennel is an uncommon, tall plant and can be found only in some snowy regions. It blooms in late autumn.
-  It has narrow, elliptic leaves, which are usually mint green. It also grows large flowers, which can be dark orange, bronze, dark grey and dark pink.
-  
-  These plants grow alone, but within a decent distance from each other, but it's very easy to control and maintain their growth.
-  They have no real use, besides their aesthetics.
-  
-  As a defense mechanism the Void Fennel has a thick, wooden stem.
-  They rely on water currents to carry their seeds away to reproduce. Once pollinated, they grow fairly large, inedible fruits.",
-  image: open_asset('plante_11.jpg'),
+  name:  'Dosa',
+  description: "A type of South Indian crepe made from a fermented batter of rice and black lentils.
+  Crispy on the outside and soft on the inside, Dosas are often filled with a spicy potato mixture 
+  and served with coconut chutney and sambar a lentil-based vegetable stew",
+  image: open_asset('Dosa.jpg'),
   quantity: 2,
-  price: 87.65
+  price: 25
+})
+
+
+cat2.products.create!({
+  name:  'Palak Paneer',
+  description: "A smooth, creamy spinach curry served with paneer (Indian cottage cheese). 
+  The spinach is pureed and seasoned with ginger, garlic, and garam masala, creating a nutritious 
+  and flavorful dish that's both comforting and satisfying.",
+  image: open_asset('Palak.jpg'),
+  quantity: 20,
+  price: 20
+})
+
+cat2.products.create!({
+  name:  'Biryani',
+  description: "A fragrant, spiced rice dish cooked with marinated meat (chicken, lamb, or beef), 
+  Biryani is garnished with fried onions, boiled eggs, and sometimes dried fruits. 
+  Its unique preparation involves cooking the meat and rice in layers, allowing the flavors 
+  to meld beautifully.",
+  image: open_asset('Biryani.jpg'),
+  quantity: 1,
+  price: 30
+})
+
+cat2.products.create!({
+  name:  'Dal Makhani',
+  description: "
+  Dal Makhani is a cherished dish in Indian cuisine, known for its rich and creamy texture. 
+  It's made with whole black lentils (urad dal) and kidney beans (rajma) that are slowly cooked
+  with butter, cream, and a blend of spices, including garam masala, cumin, and coriander, resulting 
+  in a hearty and comforting dish. The slow cooking process allows the flavors to deepen and meld 
+  together beautifully, creating a velvety curry that's both nourishing and indulgent.",
+  image: open_asset('Daal.jpg'),
+  quantity: 1,
+  price: 20
 })
 
 cat3.products.create!({
-  name:  'Cliff Collard',
-  description: "The Cliff Collard is a very rare, tiny plant and can be found in damp places. It blooms twice a year, for 1 week.
-  It has wide, spear shaped leaves, which are usually lime green. It also grows quite large flowers, which can be silver, light brown and light red.
-  
-  These plants grow within short distances from each other, but it's fairly hard to control and maintain their growth.
-  They can be brewed as tea.
-  
-  As a defense mechanism the Cliff Collard grows thick thorns.
-  They rely on winds to carry their seeds away to reproduce. Once pollinated, they grow small, inedible fruits.",
-  image: open_asset('plante_12.jpg'),
-  quantity: 23,
-  price: 79.99
+  name:  'Chole Bhature',
+  description: "This popular North Indian dish pairs spicy chickpeas (chole) with fluffy, 
+  fried bread (bhature). The chickpeas are slow-cooked in a medley of spices, tomatoes, and onions, 
+  creating a deeply flavorful, slightly tangy sauce that complements the soft bread perfectly.",
+  image: open_asset('Chole.jpg'),
+  quantity: 2,
+  price: 30
+})
+
+cat3.products.create!({
+  name:  'Pani Puri',
+  description: "Pani Puri, a quintessential street food of India, is a delightful explosion of flavors and textures in every bite. 
+  This iconic snack consists of small, hollow, crisp-fried balls of dough, known as puris which are filled with a spicy and tangy mixture of tamarind water pani, chickpeas, potatoes, onions, and a blend of spices. The puris are served whole, 
+  and the ritual of eating involves puncturing the top of the puri, stuffing it with the filling, and then dousing it with the flavored water before popping the entire creation into one's mouth in a single bite. ",
+  image: open_asset('Paani.jpg'),
+  quantity: 10,
+  price: 25
+})
+
+cat3.products.create!({
+  name:  'Butter Chicken',
+  description: "Butter Chicken, also known as Murgh Makhani, is a classic Indian dish that epitomizes the rich and aromatic flavors of Indian cuisine. 
+  It features tender pieces of chicken marinated in a mix of yogurt and spices, then cooked in a silky, mildly spiced tomato-based sauce enriched with butter and cream.
+  This velvety dish is known for its delicate balance of tanginess, sweetness, and a hint of heat, often garnished with fresh cilantro for an added layer of flavor.
+  Butter Chicken serves as a comforting and indulgent meal, typically accompanied by naan or rice, making it a beloved choice among both newcomers and connoisseurs of Indian food.
+",
+  image: open_asset('chicken.jpg'),
+  quantity: 1,
+  price: 20
 })
 
 
