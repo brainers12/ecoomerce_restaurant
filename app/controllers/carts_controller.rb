@@ -17,6 +17,13 @@ class CartsController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
+  def remove_product
+    product_id = params[:product_id].to_s
+    cart.delete(product_id)
+    update_cart cart
+    redirect_back fallback_location: root_path
+  end
+
   private
 
   def modify_cart_delta(product_id, delta)

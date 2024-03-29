@@ -39,7 +39,7 @@
       margin: 0 auto;
       display: block;
       border-radius: 0.25em;
-      border: 0.1em solid rgba(0, 130, 29, 0.8);
+      border: 0.1em solid orangered;
 
       @media screen and (max-width: 1000px) {
         width: auto;
@@ -68,7 +68,7 @@
       font-size: 1em;
       padding-left: 1em;
       padding-right: 1em;
-      background-color: rgba(0, 130, 29, 0.7);
+      background-color: orangered;
       color: white;
       font-weight: 700;
     }
