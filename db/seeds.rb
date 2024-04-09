@@ -157,6 +157,12 @@ cat3.products.create!({
   price: 20
 })
 
+provinces_list = ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan']
+
+provinces_list.each do |name|
+  Province.find_or_create_by(name: name)
+end
+
 
 puts "DONE!"
 

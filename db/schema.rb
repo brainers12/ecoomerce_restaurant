@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_27_235117) do
+ActiveRecord::Schema.define(version: 2024_04_09_215330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,12 @@ ActiveRecord::Schema.define(version: 2024_03_27_235117) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -88,6 +94,13 @@ ActiveRecord::Schema.define(version: 2024_03_27_235117) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.bigint "province_id"
+    t.index ["province_id"], name: "index_users_on_province_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -95,4 +108,5 @@ ActiveRecord::Schema.define(version: 2024_03_27_235117) do
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "users", "provinces"
 end

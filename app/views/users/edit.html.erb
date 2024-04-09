@@ -1,0 +1,27 @@
+<h1>Edit Account</h1>
+
+<%= form_for @user do |f| %>
+  <!-- Include only the fields that you want to be editable -->
+  <p>
+    First Name: <%= f.text_field :first_name %>
+  </p>
+  <p>
+    Last Name: <%= f.text_field :last_name %>
+  </p> 
+  <p>
+    Street: <%= f.text_field :street %>
+  </p>
+
+  <p>
+    City: <%= f.text_field :city %>
+  </p> 
+  <p>
+  <%= f.label :province_id, 'Province' %>
+  <%= f.collection_select :province_id, @provinces, :id, :name, { prompt: 'Select Province' }, { class: 'form-field' } %>
+  </p>
+
+  <p>
+    Zip Code: <%= f.text_field :zip_code %>
+  </p>
+  <%= f.submit 'Update Account' %>
+<% end %>
