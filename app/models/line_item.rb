@@ -6,4 +6,6 @@ class LineItem < ApplicationRecord
   monetize :item_price_cents, numericality: true
   monetize :total_price_cents, numericality: true
 
+  validates :order, presence: true
+
 end
