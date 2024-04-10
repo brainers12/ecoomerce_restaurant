@@ -1,0 +1,31 @@
+tax_rates:
+  AB: # Alberta
+    gst: 0.05
+  BC: # British Columbia
+    gst: 0.05
+    pst: 0.07
+  MB: # Manitoba
+    gst: 0.05
+    pst: 0.07
+  NB: # New Brunswick
+    hst: 0.15
+  NL: # Newfoundland and Labrador
+    hst: 0.15
+  NT: # Northwest Territories
+    gst: 0.05
+  NS: # Nova Scotia
+    hst: 0.15
+  NU: # Nunavut
+    gst: 0.05
+  ON: # Ontario
+    hst: 0.13
+  PE: # Prince Edward Island
+    hst: 0.15
+  QC: # Quebec
+    gst: 0.05
+    qst: 0.09975
+  SK: # Saskatchewan
+    gst: 0.05
+    pst: 0.06
+  YT: # Yukon
+    gst: 0.05

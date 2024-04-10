@@ -1,0 +1,5 @@
+<%= form_for @order do |f| %>
+    <%= f.collection_select :province_id, Province.all, :id, :name, prompt: 'Select Province' if current_customer.province.blank? %>
+    <%= f.submit "Complete Purchase" %>
+  <% end %>
+  
