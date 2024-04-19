@@ -24,7 +24,7 @@ class CartsController < ApplicationController
 
   def remove_product
     product_id = params[:product_id].to_s
-    cart = update_cart_delta(product_id, 0)  # Set quantity to zero to remove
+    cart = update_cart_delta(product_id, 0)  
     update_cart(cart)
     redirect_back(fallback_location: root_path)
   end
