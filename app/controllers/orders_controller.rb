@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
   private
 
   def empty_cart!
-    # empty hash means no products in cart :)
     update_cart({})
   end
 
@@ -40,8 +39,8 @@ class OrdersController < ApplicationController
     order = Order.new(
       email: params[:stripeEmail],
       total_cents: cart_subtotal_cents,
-      stripe_charge_id: stripe_charge.id, # returned by stripe
-      user: current_user # Assumes you have a method to retrieve the current logged-in user
+      stripe_charge_id: stripe_charge.id, 
+      user: current_user 
     )
     
     enhanced_cart.each do |entry|
