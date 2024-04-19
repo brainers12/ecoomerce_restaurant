@@ -13,7 +13,7 @@
     </div>
   </header>
 
-  <!-- Search Form -->
+
   <%= form_with url: products_path, method: :get, local: true do |form| %>
     <div class="search-form">
       <%= form.label :search, "Search for a product:" %>
@@ -26,7 +26,7 @@
     </div>
   <% end %>
 
-  <!-- Products Listing -->
+  
   <div class="products">
     <%= render @products %>
   </div>
