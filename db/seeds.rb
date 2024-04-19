@@ -177,7 +177,6 @@ provinces_tax_rates = {
   'Prince Edward Island' => { gst: 0.00, pst: 0.00, hst: 0.15 },
   'Quebec' => { gst: 0.05, pst: 0.09975, hst: 0.00 },
   'Saskatchewan' => { gst: 0.05, pst: 0.06, hst: 0.00 },
-  # Add other provinces as needed
 }
 
 # Update or create provinces with tax rates
