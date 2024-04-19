@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   include ProductHelper
 
   def index
-    # Start with all products or a specific category if selected
+    
     @products = if params[:category_id].present?
                   Category.find(params[:category_id]).products
                 else
