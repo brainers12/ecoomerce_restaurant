@@ -1,4 +1,3 @@
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
 
   def new
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
     @provinces = Province.all
 
     if @user.save
-      # Instead of redirecting, we just set a flash notice to be displayed on the 'new' view
+     
       flash.now[:notice] = 'Account created successfully.'
       render 'new'
     else
