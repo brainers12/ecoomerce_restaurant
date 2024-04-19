@@ -22,5 +22,4 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  # ... any other actions in the controller ...
 end

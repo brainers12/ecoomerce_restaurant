@@ -163,6 +163,27 @@ provinces_list.each do |name|
   Province.find_or_create_by(name: name)
 end
 
+puts "Creating or Updating Provinces with Tax Rates ..."
+
+# Define tax rates for each province
+provinces_tax_rates = {
+  'Alberta' => { gst: 0.05, pst: 0.00, hst: 0.00 },
+  'British Columbia' => { gst: 0.05, pst: 0.07, hst: 0.00 },
+  'Manitoba' => { gst: 0.05, pst: 0.07, hst: 0.00 },
+  'New Brunswick' => { gst: 0.00, pst: 0.00, hst: 0.15 },
+  'Newfoundland and Labrador' => { gst: 0.00, pst: 0.00, hst: 0.15 },
+  'Nova Scotia' => { gst: 0.00, pst: 0.00, hst: 0.15 },
+  'Ontario' => { gst: 0.00, pst: 0.00, hst: 0.13 },
+  'Prince Edward Island' => { gst: 0.00, pst: 0.00, hst: 0.15 },
+  'Quebec' => { gst: 0.05, pst: 0.09975, hst: 0.00 },
+  'Saskatchewan' => { gst: 0.05, pst: 0.06, hst: 0.00 },
+  # Add other provinces as needed
+}
+
+# Update or create provinces with tax rates
+provinces_tax_rates.each do |name, rates|
+  province = Province.find_or_create_by!(name: name)
+  province.update!(tax_rates: rates)
+end
 
 puts "DONE!"
-

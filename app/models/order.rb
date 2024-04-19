@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-  belongs_to :user
+  belongs_to :user, required: true
   
   has_many :line_items
 

@@ -4,50 +4,79 @@
     <h1>My Cart</h1>
   </header>
 
-  <% if enhanced_cart.empty? %>
-  <div class="alert alert-danger">
-    Your cart is empty.
-    Click <a href="/">here</a> to return to the homepage.    
-  </div>
+  <% if @cart_items.empty? %>
+    <div class="alert alert-danger">
+      Your cart is empty.
+      Click <a href="/">here</a> to return to the homepage.    
+    </div>
   <% else %>
 
-  <div class="panel panel-default items">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2">Product</th>
-          <th>Unit Price</th>
-          <th>Quantity</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% enhanced_cart.each do |item| %>
-          <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
-        <% end %>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="4">
-            TOTAL:
-          </th>
-          <th>
-            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
-          </th>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
+    <div class="panel panel-default items">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |item| %>
+            <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="4">Subtotal:</th>
+            <th><%= number_to_currency @subtotal %></th> 
+          </tr>
+          <% if @taxes %>
+            <% if @taxes[:gst] > 0 %>
+              <tr>
+                <th colspan="4">GST:</th>
+                <th><%= number_to_currency @taxes[:gst] %></th>
+              </tr>
+            <% end %>
+            <% if @taxes[:pst] > 0 %>
+              <tr>
+                <th colspan="4">PST:</th>
+                <th><%= number_to_currency @taxes[:pst] %></th>
+              </tr>
+            <% end %>
+            <% if @taxes[:hst] > 0 %>
+              <tr>
+                <th colspan="4">HST:</th>
+                <th><%= number_to_currency @taxes[:hst] %></th>
+              </tr>
+            <% end %>
+          <% end %>
+          <tr>
+            <th colspan="4">TOTAL:</th>
+            <th><%= number_to_currency(@subtotal + @taxes.values.sum) %></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
 
-  <div class="row">
+    <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
+        <div class="form-group">
+          <label for="order_province">Province:</label>
+          <select name="order[province]" id="order_province" class="form-control">
+            <% Province.all.each do |province| %>
+              <option value="<%= province.id %>"><%= province.name %></option>
+            <% end %>
+          </select>
+        </div>
+
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-amount="<%= cart_subtotal_cents %>"
-          data-name="Jungle"
-          data-description="Earls Order"
+          data-amount="<%= (@subtotal + @taxes.values.sum) * 100 %>"
+          data-name="Earls Order"
+          data-description="Checkout Order"
           data-locale="auto"
           data-currency="cad">
         </script>
@@ -55,5 +84,6 @@
     </div>
   </div>
 
-</section>
+
+  </section>
 <% end %>

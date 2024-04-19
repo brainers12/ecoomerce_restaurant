@@ -41,8 +41,9 @@ class OrdersController < ApplicationController
       email: params[:stripeEmail],
       total_cents: cart_subtotal_cents,
       stripe_charge_id: stripe_charge.id, # returned by stripe
+      user: current_user # Assumes you have a method to retrieve the current logged-in user
     )
-
+    
     enhanced_cart.each do |entry|
       product = entry[:product]
       quantity = entry[:quantity]
@@ -53,6 +54,7 @@ class OrdersController < ApplicationController
         total_price: product.price * quantity
       )
     end
+  
     order.save!
     order
   end

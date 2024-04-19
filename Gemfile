@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', group: :doc
+
+gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -44,7 +46,8 @@ gem 'rmagick'
 
 # Fake Data with Faker & Carrierwave
 gem 'faker'
-gem 'carrierwave'
+gem 'carrierwave', '~> 2.0'
+
 
 gem 'kaminari'
 
@@ -82,6 +85,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :development do
+  gem 'rails_db'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
